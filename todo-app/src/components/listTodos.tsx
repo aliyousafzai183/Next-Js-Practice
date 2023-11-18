@@ -9,10 +9,10 @@ const ListTodos = () => {
     const pendingTodos = todos.filter((todo) => !todo.completed);
 
     return (
-        <ul className="list-none border my-5" >
+        <ul className="list-none border my-5 text-center" >
             <h3 className="text-2xl text-cyan-500 font-medium mb-3" >{pendingTodos.length > 0 && "Pending"}</h3>
             {pendingTodos.map((todo) => (
-                <li key={todo.id}>
+                <li key={todo.id} className="my-4" >
 
                     <input className="ckecked:bg-black-500 mr-3" type="checkbox" id={todo.id} checked={todo.completed} onChange={() => toggleTodoAsCompleted(todo.id)} />
 
@@ -22,7 +22,7 @@ const ListTodos = () => {
             ))}
             <h3 className="text-2xl text-cyan-500 font-medium mt-10 mb-3">{completedTodos.length > 0 && "Completed"}</h3>
             {completedTodos.map((todo) => (
-                <li key={todo.id}>
+                <li key={todo.id} className="my-4">
 
                     <input className="ckecked:bg-black-500 mr-3" type="checkbox" id={todo.id} checked={todo.completed} onChange={() => toggleTodoAsCompleted(todo.id)} />
 
