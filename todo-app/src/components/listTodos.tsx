@@ -9,28 +9,28 @@ const ListTodos = () => {
     const pendingTodos = todos.filter((todo) => !todo.completed);
 
     return (
-        <ul className="list-none" >
-            <h3>{pendingTodos.length > 0 && "Pending"}</h3>
+        <ul className="list-none border my-5" >
+            <h3 className="text-2xl text-cyan-500 font-medium mb-3" >{pendingTodos.length > 0 && "Pending"}</h3>
             {pendingTodos.map((todo) => (
                 <li key={todo.id}>
 
-                    <input type="checkbox" id={todo.id} checked={todo.completed} onChange={() => toggleTodoAsCompleted(todo.id)} />
+                    <input className="ckecked:bg-black-500 mr-3" type="checkbox" id={todo.id} checked={todo.completed} onChange={() => toggleTodoAsCompleted(todo.id)} />
 
-                    <label htmlFor={todo.id} >{todo.todoValue}</label>
+                    <label className="text-md text-black font-medium hover:font-semibold transition" htmlFor={todo.id} >{todo.todoValue}</label>
 
                 </li>
             ))}
-            <h3>{completedTodos.length > 0 && "Completed"}</h3>
+            <h3 className="text-2xl text-cyan-500 font-medium mt-10 mb-3">{completedTodos.length > 0 && "Completed"}</h3>
             {completedTodos.map((todo) => (
                 <li key={todo.id}>
 
-                    <input type="checkbox" id={todo.id} checked={todo.completed} onChange={() => toggleTodoAsCompleted(todo.id)} />
+                    <input className="ckecked:bg-black-500 mr-3" type="checkbox" id={todo.id} checked={todo.completed} onChange={() => toggleTodoAsCompleted(todo.id)} />
 
-                    <label htmlFor={todo.id} >{todo.todoValue}</label>
+                    <label className="text-md text-black font-medium hover:font-semibold transition" htmlFor={todo.id} >{todo.todoValue}</label>
 
                     {
                         todo.completed && (
-                            <button type="button" onClick={() => handleDeleteTodo(todo.id)} >DELETE</button>
+                            <button className="border rounded-full bg-red-500 px-2 ml-4 border-red-500 text-white font-medium hover:border-0 hover:bg-red-700 hover:text-white" type="button" onClick={() => handleDeleteTodo(todo.id)} >DELETE</button>
                         )
                     }
 
